@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      
+	  <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta name="mkey" content="Mohit Mourya">
+	  <meta http-equiv="Access-Control-Allow-Origin" content="*">
+	<link rel="shortcut icon" type="image/png" href="favicon.png"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
+      <br><title>Mini Weather Station</title>
+        <style>
+
+	.footer{
+		background: #212f3d ;
+		width:100%;
+		height:60px;
+		position:absolute;
+		bottom:0;
+		left:0;
+	}
+
+    .center { 
+		height: 400px;
+		width: 400px;
+		background:#660099;
+		position: fixed;
+        box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		top: 33%;
+		left: 50%;
+		margin-top: -180px;
+		margin-left: -200px;
+	}
+	
+	.form{
+		padding-top: 10px;
+		padding-right: 30px;
+		padding-bottom: 50px;
+		padding-left: 30px;
+	}
+    .ip{
+		background-color: #ffffff; /* Green */
+		border: none;
+		color: black;
+		padding: 16px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		-webkit-transition-duration: 0.4s; /* Safari */
+    }
+    .button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color:#330066;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  align-self: center;
+  position: fixed;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  top: 58%;
+  left: 43.5%;
+  /*right: 50%*/
+  font-size: 25px;
+  padding: 15px;
+  width: 250px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -10px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.button1 {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #330066;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  align-self: center;
+  position: fixed;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  top: 66%;
+  left: 43.5%;
+  /*right: 50%*/
+  font-size: 25px;
+  padding: 15px;
+  width: 250px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button1 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button1 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -10px;
+  transition: 0.5s;
+}
+
+.button1:hover span {
+  padding-right: 25px;
+}
+
+.button1:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+        </style>
+
+    </head>
+    <body bgcolor=" #6666CC ">
+    <center>
+
+        <h1 style="font-family: Trebuchet MS;color: white;"><img src="favicon.png" height="35" width="35">&nbsp Mini Weather Station</h1>
+    </center>
+	<div class="center">
+	   <div align="center" class="form">
+           <br><br>
+            <p style = 'line-height: 60px;font-family: Helvetica;color: #fff;font-size: 50px;' id="temperature">
+                <img src = 'temperature.png' height="60px" width="60px" style='vertical-align: middle' /> 00.00
+            </p>
+            <p style = 'line-height: 60px;font-family: Helvetica;color: #fff;font-size: 50px;' id="humidity">
+                <img src = 'humidity.png' height="60px" width="60px" style='vertical-align: middle' /> 00.00
+            </p>
+        </div>
+	</div>
+	
+	<footer class="footer">
+		<center>
+			<h3 style="font-family:Trebuchet MS;color: white;">&copy; 2019 &nbsp| &nbsp Mohit Mourya</a> &nbsp| &nbsp<a href="http://sistec.ac.in" style="text-decoration: none; color: white">Sagar Institute of Science & Technlogy, Bhopal</a> </h3>
+		</center>
+	</footer>
+	<a href="http://YOUR_HOST/DIRECTORY_TO_logs.php"><button class="button" ><span>Weather Logs</span></button></a>
+	<a href="YOUR_HOST/DIRECTORY_TO_export.php"><button class="button1" ><span>Export .CSV</span></button></a>
+    </body>
+    
+	<script>
+		window.onload = function() {
+            loaddata();
+        };
+		function loaddata(){
+				var url = "YOUR_HOST/DIRECTORY_TO_read_all.php";
+				$.getJSON(url, function(data) {
+                   var val= data;                  
+                   var temper=(data['weather'][(Object.keys(data['weather']).length)-1]['temp']);
+                   var humid=(data['weather'][(Object.keys(data['weather']).length)-1]['hum']);
+                   
+                   document.getElementById("temperature").innerHTML = "<img src = 'temperature.png' height=\"60px\" width=\"60px\" style='vertical-align: middle' />  " +temper;
+                   document.getElementById("humidity").innerHTML = "<img src = 'humidity.png' height=\"60px\" width=\"60px\" style='vertical-align: middle' />  "+humid;
+					console.log(data['weather'][(Object.keys(data['weather']).length)-1]['temp']);
+				});
+            
+        }
+        window.setInterval(function(){
+        loaddata();
+            }, 3000);
+	
+	</script>
+</html>
