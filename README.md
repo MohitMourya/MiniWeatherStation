@@ -1,5 +1,12 @@
 ## Web App to display local weather based off DHT11 sensor connected to ESP12E
 
+#### Preview Screenshots : <br><br>
+###### Index.html
+![alt text](https://github.com/MohitMourya/MiniWeatherStation/blob/master/Screenshots/index.png) <br>
+###### Weather Logs
+![alt text](https://github.com/MohitMourya/MiniWeatherStation/blob/master/Screenshots/logs.png) <br>
+###### Export as .CSV
+![alt text](https://github.com/MohitMourya/MiniWeatherStation/blob/master/Screenshots/export.png) <br>
 
 #### Prerequisites:
 
@@ -34,10 +41,4 @@ For Server - Nginx,Apache
 6. Also make changes in directories of .php files in index.html <br>
 
 
-#### Preview Screenshots : <br><br>
-###### Index.html
-![alt text](https://github.com/MohitMourya/MiniWeatherStation/blob/master/Screenshots/index.png) <br>
-###### Weather Logs
-![alt text](https://github.com/MohitMourya/MiniWeatherStation/blob/master/Screenshots/logs.png) <br>
-###### Export as .CSV
-![alt text](https://github.com/MohitMourya/MiniWeatherStation/blob/master/Screenshots/export.png) <br>
+
