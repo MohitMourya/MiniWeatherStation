@@ -2,7 +2,14 @@
 
 
 #### Prerequisites:
-Local/Server with running SQL and Apache server
+
+1. Any Microcontroller with ESP8266 MicroChip <br>
+
+Recommended : NodeMCU ESP12E 1.0 <br>
+
+2. DHT11 Humidity & Temperature Sensor. <br>
+
+3. Server/Local Machine with running SQL and Apache server
 Recommended: <br>
 
 For Local Machine - XAMMP/WAMP & <br>
@@ -16,7 +23,7 @@ For Server - Nginx,Apache
 
 ![alt text](https://github.com/MohitMourya/MiniWeatherStation/blob/master/Screenshots/table.png) <br>
 
-2. Connect DHT11 sensor to ESP12E DATA PIN -D1. <br> 
+2. Connect DHT11 sensor to ESP12E DATA PIN - D1. <br> 
 
 3. Change WIFI SSID,PASSWORD,HOST URL in arduino code. Change board settings according to your ESP and flash it.<br>
 
